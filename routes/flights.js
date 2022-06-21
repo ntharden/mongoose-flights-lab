@@ -5,7 +5,7 @@ const router = Router()
 
 router.get('/', flightsCtrl.index)
 
-// router.get('/new', flightsCtrl.new)
+router.get('/new', flightsCtrl.new)
 
 // router.get('/', flightsCtrl.create)
 
