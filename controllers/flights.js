@@ -6,9 +6,20 @@ function newFlight(req, res) {
   })
 }
 
+function create(req, res) {
+  Flight.create(req.body)
+  .then(movie => {
+    res.redirect(`/flights`)
+  })
+  .catch(err => {
+    res.redirect('/flights')
+  })
+}
+
 function index(req, res) {
   Flight.find({})
   .then(flights => {
+    console.log(flights)
     res.render("flights/index", {
       flights,
       title: "All Flights",
@@ -18,5 +29,6 @@ function index(req, res) {
 
 export {
   newFlight as new,
+  create,
   index
 }
